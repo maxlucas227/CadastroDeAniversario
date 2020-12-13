@@ -1,0 +1,20 @@
+﻿@model Pessoa
+
+@{
+    var pessoa = Model;
+}
+
+
+    <div class="form-group">
+        <input type="hidden" class="form-control" name="id" value="@pessoa.Id" disabled />
+    </div>
+    <div class="form-group">
+        <label>Nome e Sobrenome</label>
+        <label> @pessoa.nome </label>
+    </div>
+    <div class="form-group">
+        <label>Data de Aniversário</label>
+        <label> @pessoa.DataDeAniversario.ToShortDateString() </label>
+    </div>
+
+    <a href="/pessoas/lista" class="btn btn-primary">Voltar</a>

@@ -1,0 +1,35 @@
+﻿@model IEnumerable<AT_CadastroDeAniversario.Models.Pessoa>
+
+@{
+    ViewData["Title"] = "Aniversariantes do Dia";
+}
+
+<h1>Aniversariantes do Dia</h1>
+
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Nome e Sobrenome
+            </th>
+            <th>
+               Aniversariantes do Dia
+            </th>
+
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.nome)
+            </td>
+            <td>
+                @item.DataDeAniversario.ToShortDateString()
+            </td>
+
+        </tr>
+}
+    </tbody>
+</table>

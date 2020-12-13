@@ -1,0 +1,49 @@
+﻿@model List<Pessoa>
+@{ 
+    var pessoas = Model;
+}
+
+
+<form action="/pessoas/lista" method="get">
+    <div class="form-group">
+        <label>Buscar por Pessoa</label>
+        <input type="text" class="form-control" name="busca">
+    </div>
+    <button type="submit" class="btn btn-primary">Buscar</button>
+</form>
+<a class="btn btn-primary" href="cadastro">Cadastrar</a>
+<hr />
+<table class="table">
+    <thead class="thead-dark">
+        <tr>
+            <th scope="col">Nome</th>
+            <th scope="col">Data de Aniversário</th>
+            <th scope="col">Funções</th>
+        </tr>
+    </thead>
+    <tbody>
+
+        @foreach (var pessoa in pessoas)
+        {
+            <tr>
+                <th scope="row">@pessoa.nome</th>
+                <td>@pessoa.DataDeAniversario.ToShortDateString()</td>
+                
+                <td>
+                    <a href="/pessoas/detalhes?id=@pessoa.Id" class="btn btn-info">Detalhes</a>
+                    <a href="/pessoas/edicao?id=@pessoa.Id" class="btn btn-primary">Editar</a>
+                    <a href="/pessoas/delecao?id=@pessoa.Id" class="btn btn-danger">Excluir</a>
+                </td>
+
+
+
+                
+
+            </tr>
+
+        }
+
+
+    </tbody>
+</table>
+ 
